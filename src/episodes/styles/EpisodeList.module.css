@@ -1,0 +1,11 @@
+.list_main{
+    display: flex;
+    flex-direction: column;
+
+    width: 95%;
+    /* background-color: red; */
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 0;
+}
