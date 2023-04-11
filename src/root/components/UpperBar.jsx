@@ -33,16 +33,23 @@ export const UpperBar = () => {
 					>
 						Locations
 					</NavLink>
+					<NavLink
+						className={({ isActive }) =>
+							`${styles.upperbar_filter_item} ${isActive ? styles.active : ""}`
+						}
+						to="/search"
+					>
+						Search
+					</NavLink>
 				</div>
-				<div></div>
-				<div className={styles.upperbar_input_container}>
+				{/* <div className={styles.upperbar_input_container}>
 					<input
 						className={styles.upperbar_input}
 						type="text"
-						placeholder="Buscar personajes, lugares, capitulos"
+						placeholder="S"
 					/>
 					<BiSearchAlt2 className={styles.upperbar_icon} />
-				</div>
+				</div> */}
 			</header>
 		</>
 	);

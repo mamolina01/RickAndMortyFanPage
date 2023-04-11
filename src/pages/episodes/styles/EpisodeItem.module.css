@@ -1,0 +1,25 @@
+.episode_card{
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    font-size: 18px;
+    color: white;
+    border-bottom: 1px solid white;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.episode_card_item{
+    margin-left: 20px;
+}
+
+.episode_card:hover .episode_card_item{
+    color: #e7e77d;
+    margin-left: 30px;
+    transition: 0.5s;
+}
+
+.episode_card:hover{
+    border-color: #e7e77d;
+}
+

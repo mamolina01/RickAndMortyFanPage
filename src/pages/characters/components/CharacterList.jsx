@@ -1,18 +1,20 @@
 import React from "react";
-import { Spinner } from "../../root/components/Spinner";
-import { useGetCharacters } from "../../root/hooks/useGetCharacters";
+import { Spinner,useFetchApi } from "../../../root";
+// import { useFetchApi } from "../../../root";
 import { CharacterItem } from "./CharacterItem";
 import styles from "../styles/CharacterList.module.css";
+// import { useFetchApi } from "../../../root";
 
 export const CharacterList = () => {
-	const { characters, isLoading } = useGetCharacters("character");
+	const { data, isLoading } = useFetchApi("character");
 
+	// console.log(characters)
 	return (
 		<>
 			{!isLoading ? (
 				<main className={styles.list_main}>
 					<div className={styles.characters_list}>
-						{characters.map((character) => (
+						{data.map((character) => (
 							<CharacterItem key={character.id} character={character} />
 						))}
 					</div>

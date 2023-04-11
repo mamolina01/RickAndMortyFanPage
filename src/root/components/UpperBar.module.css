@@ -1,10 +1,10 @@
 .upperbar_header {
 	background-color: slateblue;
 	padding: 10px;
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+	display: flex;
+	justify-content: space-between;
 	align-items: center;
-	font-size: 16px;
+	font-size: 14px;
 	color: white;
 }
 
@@ -58,4 +58,10 @@
 	height: 25px;
 	width: 25px;
 	margin-left: 3px;
+}
+
+@media screen and (min-width: 760px){
+	.upperbar_header{
+		font-size: 18px;
+	}
 }

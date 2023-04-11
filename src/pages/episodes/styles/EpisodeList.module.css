@@ -1,11 +1,8 @@
 .list_main{
     display: flex;
     flex-direction: column;
-
     width: 95%;
-    /* background-color: red; */
     justify-content: center;
-    margin: 0 auto;
-    margin-top: 20px;
+    margin: 20px 0;
     padding: 0;
 }

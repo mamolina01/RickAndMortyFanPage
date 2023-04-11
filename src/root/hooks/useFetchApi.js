@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 
-export const useFetchApi = (endpoint="character") => {
+export const useFetchApi = (endpoint='character') => {
 	const [data, setData] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 
-	const fetchApi = async () => {
-		const baseUrl = `https://rickandmortyapi.com/api/episode`;
+	const fetchApi = async (endpoint) => {
+		const baseUrl = `https://rickandmortyapi.com/api/${endpoint}`;
+		// console.log(`Base url: ${baseUrl}`)
 		const respuesta = fetch(baseUrl)
 			.then((data) => data.json())
 			.then((response) => response.results);
@@ -13,15 +14,16 @@ export const useFetchApi = (endpoint="character") => {
 		return await respuesta;
 	};
 
-	const getData = async () => {
-		const newData = await fetchApi();
+	const getData = async (endpoint) => {
+		const newData = await fetchApi(endpoint);
+		// console.log(newData);
 
 		setData(newData);
 		setIsLoading(false);
 	};
 
 	useEffect(() => {
-		getData();
+		getData(endpoint);
 	}, []);
 
 	return { data, isLoading };

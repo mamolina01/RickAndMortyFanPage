@@ -6,7 +6,7 @@ export const CharacterDetail = ({ character }) => {
 		<>
 			<img src={character.image} alt="" />
 			<div className={styles.character_data}>
-				<h1>{character.name}</h1>
+				<h2>{character.name}</h2>
 				<p className={styles.character_item}>
 					<strong>Gender: </strong>
 					{character.gender}
