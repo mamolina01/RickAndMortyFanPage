@@ -1,0 +1,16 @@
+.pagination_container{
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    margin-right: 30px;
+}
+
+.pagination_item{
+    background:none;
+    color: slateblue;
+    border: 0;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 5px ;
+}

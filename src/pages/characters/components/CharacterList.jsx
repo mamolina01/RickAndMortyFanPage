@@ -1,27 +1,32 @@
-import React from "react";
-import { Spinner,useFetchApi } from "../../../root";
-// import { useFetchApi } from "../../../root";
+import React, { useState } from "react";
+import { Spinner, useFetchApi, Pagination } from "../../../root";
 import { CharacterItem } from "./CharacterItem";
 import styles from "../styles/CharacterList.module.css";
-// import { useFetchApi } from "../../../root";
 
 export const CharacterList = () => {
-	const { data, isLoading } = useFetchApi("character");
+  const [page, setPage] = useState(1);
+  const { data, paginationData, isLoading } = useFetchApi(`character/?page=${page}`);
 
-	// console.log(characters)
-	return (
-		<>
-			{!isLoading ? (
-				<main className={styles.list_main}>
-					<div className={styles.characters_list}>
-						{data.map((character) => (
-							<CharacterItem key={character.id} character={character} />
-						))}
-					</div>
-				</main>
-			) : (
-				<Spinner/>
-			)}
-		</>
-	);
+  return (
+    <>
+      {!isLoading ? (
+        <>
+          <main className={styles.list_main}>
+            <div className={styles.characters_list}>
+              {data.map((character) => (
+                <CharacterItem key={character.id} character={character} />
+              ))}
+            </div>
+          </main>
+          <Pagination
+            page={page}
+            setPage={setPage}
+            paginationData={paginationData}
+          />
+        </>
+      ) : (
+        <Spinner />
+      )}
+    </>
+  );
 };

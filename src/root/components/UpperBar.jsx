@@ -1,56 +1,98 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./UpperBar.module.css";
-import { BiSearchAlt2 } from "react-icons/bi";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { HiMenu } from "react-icons/hi";
 
 export const UpperBar = () => {
-	return (
-		<>
-			<header className={styles.upperbar_header}>
-				<h1 className={styles.upperbar_title}>Rick And Morty</h1>
-				<div className={styles.upperbar_filters}>
-					<NavLink
-						className={({ isActive }) =>
-							`${styles.upperbar_filter_item} ${isActive ? styles.active : ""}`
-						}
-						to="/characters"
-					>
-						Characters
-					</NavLink>
-					<NavLink
-						className={({ isActive }) =>
-							`${styles.upperbar_filter_item} ${isActive ? styles.active : ""}`
-						}
-						to="/episodes"
-					>
-						Episodes
-					</NavLink>
-					<NavLink
-						className={({ isActive }) =>
-							`${styles.upperbar_filter_item} ${isActive ? styles.active : ""}`
-						}
-						to="/locations"
-					>
-						Locations
-					</NavLink>
-					<NavLink
-						className={({ isActive }) =>
-							`${styles.upperbar_filter_item} ${isActive ? styles.active : ""}`
-						}
-						to="/search"
-					>
-						Search
-					</NavLink>
-				</div>
-				{/* <div className={styles.upperbar_input_container}>
-					<input
-						className={styles.upperbar_input}
-						type="text"
-						placeholder="S"
-					/>
-					<BiSearchAlt2 className={styles.upperbar_icon} />
-				</div> */}
-			</header>
-		</>
-	);
+  const [hidden, setHidden] = useState(false);
+  console.log(hidden);
+  return (
+    <>
+      <header className={styles.upperbar_header}>
+        <NavLink className={`${styles.upperbar_title} ${styles.link}`}>
+          <h1 to="/characters">Rick And Morty</h1>
+        </NavLink>
+        <div>
+          <HiMenu
+            className={styles.upperbar_filters_icon}
+            // onMouseOver={() => setHidden(true)}
+            // onMouseLeave={() => setHidden(false)}
+            onClick={() => setHidden(!hidden)}
+          />
+        </div>
+
+        <div className={styles.upperbar_filters}>
+          <NavLink
+            className={({ isActive }) =>
+              `${styles.upperbar_filter_item} ${isActive ? styles.active : ""} ${styles.link}`
+            }
+            to="/characters"
+          >
+            Characters
+          </NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              `${styles.upperbar_filter_item} ${isActive ? styles.active : ""} ${styles.link}`
+            }
+            to="/episodes"
+          >
+            Episodes
+          </NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              `${styles.upperbar_filter_item} ${isActive ? styles.active : ""} ${styles.link}`
+            }
+            to="/locations"
+          >
+            Locations
+          </NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              `${styles.upperbar_filter_item} ${isActive ? styles.active : ""} ${styles.link}`
+            }
+            to="/search"
+          >
+            Search
+          </NavLink>
+        </div>
+      </header>
+      <div
+        className={styles.upperbar_hidden_filters}
+        style={{ visibility: hidden ? "" : "hidden" }}
+      >
+        <NavLink to="/characters" className={styles.link}>
+          <p
+            className={styles.upperbar_hidden_filter_item}
+            onClick={() => setHidden(false)}
+          >
+            Characters
+          </p>
+        </NavLink>
+        <NavLink to="/episodes" className={styles.link}>
+          <p
+            className={styles.upperbar_hidden_filter_item}
+            onClick={() => setHidden(false)}
+          >
+            Episodes
+          </p>
+        </NavLink>
+        <NavLink to="/locations" className={styles.link}>
+          <p
+            className={styles.upperbar_hidden_filter_item}
+            onClick={() => setHidden(false)}
+          >
+            Locations
+          </p>
+        </NavLink>
+        <NavLink to="/search" className={styles.link}>
+          <p
+            className={styles.upperbar_hidden_filter_item}
+            onClick={() => setHidden(false)}
+          >
+            Search
+          </p>
+        </NavLink>
+      </div>
+    </>
+  );
 };

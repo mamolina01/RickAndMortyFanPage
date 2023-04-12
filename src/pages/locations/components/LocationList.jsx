@@ -1,22 +1,30 @@
-import React from 'react'
+import React, { useState } from "react";
 import { useFetchApi } from "../../../root";
-import { Spinner } from "../../../root/components/Spinner";
-import styles from '../styles/LocationList.module.css'
-import { LocationItem } from './LocationItem';
+import { Spinner, Pagination } from "../../../root";
+import { LocationItem } from "./LocationItem";
+import styles from "../styles/LocationList.module.css";
 
 export const LocationsList = () => {
-    const { data, isLoading } = useFetchApi("location");
-	return (
-		<>
-			{!isLoading ? (
-				<main className={styles.list_main}>
-						{data.map((location) => (
-							<LocationItem key={location.id} location={location}/>
-						))}
-				</main>
-			) : (
-				<Spinner />
-			)}
-		</>
-	);
-}
+  const [page, setPage] = useState(1);
+  const { data, paginationData, isLoading } = useFetchApi(`location/?page=${page}`);
+  return (
+    <>
+      {!isLoading ? (
+        <>
+          <main className={styles.list_main}>
+            {data.map((location) => (
+              <LocationItem key={location.id} location={location} />
+            ))}
+          </main>
+          <Pagination
+            page={page}
+            setPage={setPage}
+            paginationData={paginationData}
+          />
+        </>
+      ) : (
+        <Spinner />
+      )}
+    </>
+  );
+};
