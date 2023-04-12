@@ -48,6 +48,7 @@
 	cursor: pointer;
 	padding: 3px;
 	color: white;
+	font-size: 18px;
 
 }
 
@@ -56,6 +57,7 @@
 	cursor: pointer;
 	font-weight: 600;
 	color: #cccccc;
+	font-size: 18px;
 }
 
 .active {
@@ -86,4 +88,5 @@
 	.upperbar_hidden_filters{
 		visibility: hidden;
 	}
+
 }

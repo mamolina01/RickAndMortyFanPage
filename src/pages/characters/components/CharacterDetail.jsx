@@ -4,8 +4,8 @@ import styles from "../styles/CharacterDetail.module.css";
 export const CharacterDetail = ({ character }) => {
   return (
     <>
-      <img src={character.image} alt="" />
-      <div className={styles.character_data}>
+      <img src={character.image} alt={character.name} />
+      <div className={styles.character_data_container}>
         <h2>{character.name}</h2>
         <p className={styles.character_item}>
           <strong>Gender: </strong>
