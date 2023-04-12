@@ -2,15 +2,26 @@ import React, { useState } from "react";
 import styles from "../styles/SearchBar.module.css";
 import { FiChevronRight, FiChevronDown } from "react-icons/fi";
 
-export const SearchBar = ({ selectedValue, setSelectedValue }) => {
+export const SearchBar = ({ selectedValue, setSelectedValue,onHandleSearch}) => {
   const [hidden, setHidden] = useState(false);
+  const [inputValue, setInputValue] = useState("")
+
+  const onHandleSubmit=(e)=>{
+    e.preventDefault()
+    if(inputValue!==""){
+      onHandleSearch(inputValue)
+    }
+  }
+
   return (
     <>
       <div className={styles.search_bar_container}>
-        <form className={styles.search_form}>
+        <form className={styles.search_form} onSubmit={(e)=>onHandleSubmit(e)}>
           <input
             type="text"
             className={styles.search_input}
+            value={inputValue}
+            onChange={(e)=>setInputValue(e.target.value)}
             placeholder="Search characters, episodes, locations..."
           />
 
@@ -23,9 +34,9 @@ export const SearchBar = ({ selectedValue, setSelectedValue }) => {
               {selectedValue}
 
               {!hidden ? (
-                <FiChevronRight className={styles.icon} />
+                <FiChevronRight />
               ) : (
-                <FiChevronDown className={styles.icon} />
+                <FiChevronDown />
               )}
             </b>
             {hidden ? (

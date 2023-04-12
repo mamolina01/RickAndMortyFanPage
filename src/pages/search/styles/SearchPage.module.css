@@ -4,3 +4,10 @@
     justify-content: center;
     flex-direction: column;
 }
+
+.title{
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 30px;
+}

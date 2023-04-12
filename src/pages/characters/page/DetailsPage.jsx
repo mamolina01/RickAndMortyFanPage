@@ -1,13 +1,13 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import { useGetCharacterById } from "../../../root";
+import { useFetchApi } from "../../../root";
 import { CharacterDetail } from "../components/CharacterDetail";
 import styles from "../styles/CharacterDetail.module.css";
 import { FcLeft } from "react-icons/fc";
 
 export const DetailsPage = () => {
 	const { characterId } = useParams();
-	const { character, isLoading } = useGetCharacterById(characterId);
+	const { data, isLoading } = useFetchApi(`character/${characterId}`);
 	return (
 		<>
 			{!isLoading ? (
@@ -18,7 +18,7 @@ export const DetailsPage = () => {
 						<p>Volver atras...</p>
 					</Link>
 					<main className={styles.detail_main}>
-						<CharacterDetail character={character} />
+						<CharacterDetail character={data} />
 					</main>
 				</>
 			) : (
