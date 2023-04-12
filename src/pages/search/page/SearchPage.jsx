@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Spinner, useFetchApi } from "../../../root";
 import { SearchBar } from "../components/SearchBar";
-import { SearchList } from "../components/SearchList";
+import { SearchResultList } from "../components/SearchResultList";
 import styles from "../styles/SearchPage.module.css";
 
 export const SearchPage = () => {
@@ -29,7 +29,9 @@ export const SearchPage = () => {
 
 				{endpoint !== "" ? (
 					!isLoading ? (
-						<SearchList data={data} isLoading={isLoading} selectedValue={selectedValue.toLowerCase()} />
+						(data.length>0)?(
+							<SearchResultList data={data} isLoading={isLoading} selectedValue={selectedValue.toLowerCase()} />
+						):(<p className={styles.result_notfound}>No se encontraron resultados...</p>)
 					) : (
 						<Spinner />
 					)

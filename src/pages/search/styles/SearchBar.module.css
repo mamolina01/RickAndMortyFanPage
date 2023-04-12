@@ -47,7 +47,7 @@
     position:absolute;
     cursor: pointer;
     width: 83px;
-
+    z-index: 2;
 }
 
 .option{
