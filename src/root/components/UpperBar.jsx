@@ -9,14 +9,12 @@ export const UpperBar = () => {
   return (
     <>
       <header className={styles.upperbar_header}>
-        <NavLink className={`${styles.upperbar_title} ${styles.link}`}>
-          <h1 to="/characters">Rick And Morty</h1>
+        <NavLink className={`${styles.upperbar_title} ${styles.link}`} to="/characters">
+          <h1>Rick And Morty</h1>
         </NavLink>
         <div>
           <HiMenu
             className={styles.upperbar_filters_icon}
-            // onMouseOver={() => setHidden(true)}
-            // onMouseLeave={() => setHidden(false)}
             onClick={() => setHidden(!hidden)}
           />
         </div>

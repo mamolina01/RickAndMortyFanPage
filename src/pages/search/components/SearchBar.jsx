@@ -33,7 +33,45 @@ export const SearchBar = ({
           />
 
           <div className={styles.buttons}>
-            <div
+            
+            <div className={styles.DropDownContainer}>
+              <div className={styles.DropDownHeader} onClick={()=>setHidden(!hidden)}>
+                <a>{selectedValue}</a>
+                {/* <FiChevronRight className={styles.icon}/> */}
+                {!hidden ? (<FiChevronRight className={styles.icon} />) : (<FiChevronDown className={styles.icon} />)}
+              </div>
+              {hidden && (
+                <div className={styles.DropDownListContainer}>
+                  <ul className={styles.DropDownList}>
+                      <li className={styles.ListItem} onClick={(e)=>setSelectedValue(e.target.textContent)} key={Math.random()}>
+                        Characters
+                      </li>
+                      <li className={styles.ListItem} onClick={(e)=>setSelectedValue(e.target.textContent)} key={Math.random()}>
+                        Locations
+                      </li>
+                      <li className={styles.ListItem} onClick={(e)=>setSelectedValue(e.target.textContent)} key={Math.random()}>
+                        Episodes
+                      </li>
+                      <li className={styles.ListItem} onClick={(e)=>setSelectedValue(e.target.textContent)} key={Math.random()}>
+                        Search
+                      </li>
+                  </ul>
+                </div>
+              )}
+            </div>
+
+            <button className={styles.button} type="submit">
+              Buscar
+            </button>
+          </div>
+        </form>
+      </div>
+    </>
+  );
+};
+
+
+{/* <div
               className={styles.select}
               onMouseOver={() => setHidden(true)}
               onMouseLeave={() => setHidden(false)}
@@ -78,14 +116,4 @@ export const SearchBar = ({
               ) : (
                 ""
               )}
-            </div>
-
-            <button className={styles.button} type="submit">
-              Buscar
-            </button>
-          </div>
-        </form>
-      </div>
-    </>
-  );
-};
+            </div> */}
