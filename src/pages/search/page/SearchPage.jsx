@@ -11,6 +11,7 @@ export const SearchPage = () => {
 
 	const onHandleSearch = (parameter) => {
 		console.log("Desde onHandleSearch");
+		console.log(parameter)
 		const newEndpoint = `${selectedValue.toLowerCase()}/?name=${parameter}`;
 		setEndpoint(newEndpoint);
 	};

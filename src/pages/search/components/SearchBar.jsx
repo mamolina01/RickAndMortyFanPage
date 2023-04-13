@@ -34,8 +34,8 @@ export const SearchBar = ({
 
           <div className={styles.buttons}>
             
-            <div className={styles.DropDownContainer}>
-              <div className={styles.DropDownHeader} onClick={()=>setHidden(!hidden)}>
+            <div className={styles.DropDownContainer} onMouseOver={()=>setHidden(true)} onMouseLeave={()=>setHidden(false)} onClick={()=>setHidden(!hidden)}>
+              <div className={styles.DropDownHeader} >
                 <a>{selectedValue}</a>
                 {/* <FiChevronRight className={styles.icon}/> */}
                 {!hidden ? (<FiChevronRight className={styles.icon} />) : (<FiChevronDown className={styles.icon} />)}
@@ -44,16 +44,13 @@ export const SearchBar = ({
                 <div className={styles.DropDownListContainer}>
                   <ul className={styles.DropDownList}>
                       <li className={styles.ListItem} onClick={(e)=>setSelectedValue(e.target.textContent)} key={Math.random()}>
-                        Characters
+                        Character
                       </li>
                       <li className={styles.ListItem} onClick={(e)=>setSelectedValue(e.target.textContent)} key={Math.random()}>
-                        Locations
+                        Episode
                       </li>
                       <li className={styles.ListItem} onClick={(e)=>setSelectedValue(e.target.textContent)} key={Math.random()}>
-                        Episodes
-                      </li>
-                      <li className={styles.ListItem} onClick={(e)=>setSelectedValue(e.target.textContent)} key={Math.random()}>
-                        Search
+                      Location
                       </li>
                   </ul>
                 </div>

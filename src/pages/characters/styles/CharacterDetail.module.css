@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .character_data_container{
@@ -14,6 +14,13 @@
     text-align: center;
     color: white;
     width: 100%;
+}
+
+.character_name{
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: rgb(169, 90, 205);
 }
 
 .character_item{
@@ -65,12 +72,16 @@
         justify-content: center;
         flex-direction: row;
         align-items: center;
-        margin-top: 100px;
+        padding: 50px;
     }
 
-    .character_data{
-        width: auto;
+    .character_data_container{
         margin: 0 50px;
+        width: fit-content;
+    }
+
+    .character_name{
+        text-align: start;
     }
 
     .character_item{
